@@ -1,14 +1,16 @@
 package qwop;
 
-import qwop.LinkedList;
 import alda.linear.ALDAQueue;
+
+import java.util.Collection;
+import java.util.Iterator;
 
 public class LinkedQueue<E> implements ALDAQueue<E> {
 
 	public void add(E element) {
 	}
 
-public void addAll(Collection<?> extends E> c)
+	public void addAll(Collection<? extends E> c)
 	{
 	}
 
@@ -26,6 +28,7 @@ public void addAll(Collection<?> extends E> c)
 	}
 
 	public int size() {
+		return 0;
 	}
 
 	public boolean isEmpty() {
@@ -50,6 +53,16 @@ public void addAll(Collection<?> extends E> c)
 		// TODO
 		// move all E equal to e to the end of the queue, throw NPE if e ==
 		// null, return n(E_moved)
+		return 0;
 	}
 
+	/**
+	 * Returns an iterator over elements of type {@code T}.
+	 *
+	 * @return an Iterator.
+	 */
+	@Override
+	public Iterator<E> iterator() {
+		return null;
+	}
 }

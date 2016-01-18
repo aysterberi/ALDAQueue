@@ -1,13 +1,19 @@
 package qwop;
 
-import qwop.Node;
-
 public class LinkedList<T> {
 
 	private Node<T> first;
 	private Node<T> last;
 
-	public void add(Node<T> node);
+	public void add(Node<T> node) {
+		if (first == null) {
+			first = node;
+			last = node;
+		} else {
+			first.next = node;
+			last = node;
+		}
+	}
 
 	public void insertAfter(Node<T> node, Node<T> newNode) {
 		newNode.next = node.next; // point new node header to old node's
