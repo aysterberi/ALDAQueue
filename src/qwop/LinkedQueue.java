@@ -38,7 +38,9 @@ public void addAll(Collection<?> extends E> c)
 		return false;
 	}
 
-public int totalCapacity( { return 0;)
+	public int totalCapacity() {
+		return 0;
+	}
 
 	public int currentCapacity() {
 		return 0;
