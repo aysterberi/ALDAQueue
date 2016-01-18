@@ -10,7 +10,7 @@ public class LinkedList<T> {
 			first = node;
 			last = node;
 		} else {
-			first.next = node;
+			last.next = node;
 			last = node;
 		}
 	}
