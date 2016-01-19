@@ -41,8 +41,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public void clear() {
-		//TODO
-		//aList.clear();
+		aList.clear();
 	}
 
 	public int size() {
@@ -58,12 +57,10 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public int totalCapacity() {
-		//TODO
 		return totalCapacity;
 	}
 
 	public int currentCapacity() {
-		//TODO
 		return totalCapacity() - size();
 	}
 

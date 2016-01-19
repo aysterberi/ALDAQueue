@@ -15,6 +15,7 @@ public class LinkedList<E> {
 	/**
 	 * Adds a node to the list irrespective if the list is empty or not.
 	 * If the list is empty, the node reference is stored as first
+	 *
 	 * @param node
 	 */
 	public void add(Node<E> node) {
@@ -58,6 +59,12 @@ public class LinkedList<E> {
 			node.next = node.next.next;
 		}
 		size--;
+	}
+
+	public void clear() {
+		first = null;
+		last = null;
+		size = 0;
 	}
 
 	public void insertAfter(Node<E> node, Node<E> newNode) {
