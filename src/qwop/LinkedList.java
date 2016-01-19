@@ -1,3 +1,6 @@
+/*
+  Copyright (C) Billy G. J. Beltran & Joakim Berglund
+ */
 package qwop;
 
 import java.util.NoSuchElementException;

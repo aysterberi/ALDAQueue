@@ -1,3 +1,7 @@
+/*
+  Copyright (C) Billy G. J. Beltran & Joakim Berglund
+  Contact details: billy@caudimordax.org, joakim
+ */
 package qwop;
 
 import alda.linear.ALDAQueue;
