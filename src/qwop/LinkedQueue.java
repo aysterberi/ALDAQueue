@@ -31,7 +31,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 
 	public void addAll(Collection<? extends E> c) {
 		if (c.size() > currentCapacity()) {
-			throw new IndexOutOfBoundsException();
+			throw new IllegalStateException();
 			// make sure we're not adding more elements than fit
 			// which is the right Exception to throw?
 		}
