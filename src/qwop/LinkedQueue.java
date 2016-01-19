@@ -10,7 +10,6 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	LinkedList<E> aList = new LinkedList<>();
 
 	public void add(E element) {
-		//TODO
 		Node<E> tmp = new Node<>(element);
 		aList.add(tmp);
 	}
@@ -36,8 +35,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public int size() {
-		//TODO
-		return 0;
+		return aList.size();
 	}
 
 	public boolean isEmpty() {
