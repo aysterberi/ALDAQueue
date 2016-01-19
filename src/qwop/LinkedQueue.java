@@ -8,9 +8,12 @@ import java.util.Iterator;
 public class LinkedQueue<E> implements ALDAQueue<E> {
 
 	private final int totalCapacity;
-	LinkedList<E> aList = new LinkedList<>();
+	private LinkedList<E> aList = new LinkedList<>();
 
 	public LinkedQueue(int totalCapacity) {
+		if (totalCapacity <= 0) {
+			throw new IllegalArgumentException();
+		}
 		this.totalCapacity = totalCapacity;
 	}
 
