@@ -23,7 +23,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public void addAll(Collection<? extends E> c) {
-		if (c.size() + aList.size() > totalCapacity) {
+		if (c.size() > currentCapacity()) {
 			throw new IndexOutOfBoundsException();
 			// make sure we're not adding more elements than fit
 			// which is the right Exception to throw?
