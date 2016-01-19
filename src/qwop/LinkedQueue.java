@@ -36,8 +36,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public E peek() {
-		// TODO
-		return null;
+		return aList.peek().data;
 	}
 
 	public void clear() {
