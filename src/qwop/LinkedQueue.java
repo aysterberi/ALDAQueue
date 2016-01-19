@@ -8,10 +8,13 @@ import java.util.Iterator;
 public class LinkedQueue<E> implements ALDAQueue<E> {
 
 	public void add(E element) {
+		//TODO
 	}
 
 	public void addAll(Collection<? extends E> c)
 	{
+		//TODO
+
 	}
 
 	public E remove() {
@@ -25,9 +28,11 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public void clear() {
+		// TODO
 	}
 
 	public int size() {
+		//TODO
 		return 0;
 	}
 
@@ -42,10 +47,12 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public int totalCapacity() {
+		//TODO
 		return 0;
 	}
 
 	public int currentCapacity() {
+		//TODO
 		return 0;
 	}
 
@@ -63,6 +70,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	 */
 	@Override
 	public Iterator<E> iterator() {
+		//TODO
 		return null;
 	}
 }

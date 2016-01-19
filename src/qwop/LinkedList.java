@@ -14,7 +14,7 @@ public class LinkedList<T> {
 
 	/**
 	 * Adds a node to the list irrespective if the list is empty or not.
-	 *
+	 * If the list is empty, the node reference is stored as first
 	 * @param node
 	 */
 	public void add(Node<T> node) {
