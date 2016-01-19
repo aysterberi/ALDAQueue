@@ -13,13 +13,19 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	public LinkedQueue(int totalCapacity) {
 		this.totalCapacity = totalCapacity;
 	}
+
 	public void add(E element) {
-		Node<E> tmp = new Node<>(element);
-		aList.add(tmp);
+		if (aList.size() < totalCapacity) {
+			// make sure we're not adding more elements than fit
+			Node<E> tmp = new Node<>(element);
+			aList.add(tmp);
+		}
 	}
 
-	public void addAll(Collection<? extends E> c)
-	{
+	public void addAll(Collection<? extends E> c) {
+		if (c.size() + aList.size() < totalCapacity) {
+			// make sure we're not adding more elements than fit
+		}
 		//TODO
 
 	}
