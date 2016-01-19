@@ -50,13 +50,11 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public boolean isEmpty() {
-		// TODO
-		return false;
+		return aList.size() == 0;
 	}
 
 	public boolean isFull() {
-		// TODO
-		return false;
+		return aList.size() == totalCapacity();
 	}
 
 	public int totalCapacity() {
@@ -66,7 +64,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 
 	public int currentCapacity() {
 		//TODO
-		return 0;
+		return totalCapacity() - size();
 	}
 
 	public int discriminate(E element) {
