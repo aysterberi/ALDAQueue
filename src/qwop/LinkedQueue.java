@@ -18,9 +18,13 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public void add(E element) {
+		if (element == null) {
+			throw new NullPointerException();
+		}
 		if (aList.size() < totalCapacity) {
 			// make sure we're not adding more elements than fit
 			Node<E> tmp = new Node<>(element);
+			tmp.data = element;
 			aList.add(tmp);
 		}
 	}
@@ -41,7 +45,11 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public E peek() {
-		return aList.peek().data;
+		Node<E> tmp = aList.peek();
+		if (tmp == null) {
+			return null;
+		}
+		return tmp.data;
 	}
 
 	public void clear() {
