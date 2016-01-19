@@ -6,10 +6,10 @@ package qwop;
 *
 *
  */
-public class LinkedList<T> {
+public class LinkedList<E> {
 
-	private Node<T> first;
-	private Node<T> last;
+	private Node<E> first;
+	private Node<E> last;
 	private int size = 0;
 
 	/**
@@ -17,7 +17,7 @@ public class LinkedList<T> {
 	 * If the list is empty, the node reference is stored as first
 	 * @param node
 	 */
-	public void add(Node<T> node) {
+	public void add(Node<E> node) {
 		if (first == null) {
 			first = node;
 			last = node;
@@ -33,7 +33,7 @@ public class LinkedList<T> {
 	 *
 	 * @return if the list empty, this is null, else the first element.
 	 */
-	public Node<T> peek() {
+	public Node<E> peek() {
 		return first;
 	}
 
@@ -42,20 +42,21 @@ public class LinkedList<T> {
 	 *
 	 * @return if the list is empty, this is null, else the first element.
 	 */
-	public Node<T> remove() {
-		Node<T> luckyNode = first; //keep a reference to the first
+	public Node<E> remove() {
+		Node<E> luckyNode = first; //keep a reference to the first
 		first = first.next; //replace our ref. to the first element with the second
 		size--;
 		return luckyNode;
 	}
-	public void removeAfter(Node<T> node) {
+
+	public void removeAfter(Node<E> node) {
 		if (node.next != null) {
 			node.next = node.next.next;
 		}
 		size--;
 	}
 
-	public void insertAfter(Node<T> node, Node<T> newNode) {
+	public void insertAfter(Node<E> node, Node<E> newNode) {
 		newNode.next = node.next; // point new node header to old node's
 		node.next = newNode; // point old node to our newly inserted node
 		size++;
