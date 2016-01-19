@@ -3,9 +3,8 @@ package qwop;
 /**
  * A simple node capable of pointing to data and another node
  * Created by Joakim on 2016-01-18.
- *
  */
-public class Node<T> {
+class Node<T> {
 
 	public Node next;
 	public T data;
