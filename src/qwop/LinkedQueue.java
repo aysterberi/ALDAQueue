@@ -22,12 +22,13 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 		if (element == null) {
 			throw new NullPointerException();
 		}
-		if (aList.size() < totalCapacity) {
-			// make sure we're not adding more elements than fit
-			Node<E> tmp = new Node<>(element);
-			tmp.data = element;
-			aList.add(tmp);
+		if (currentCapacity() < 1) {
+			//no more space
+			throw new IllegalStateException();
 		}
+		Node<E> tmp = new Node<>(element);
+		tmp.data = element;
+		aList.add(tmp);
 	}
 
 	public void addAll(Collection<? extends E> c) {
