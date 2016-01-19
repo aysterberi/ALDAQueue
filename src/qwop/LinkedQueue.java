@@ -7,8 +7,8 @@ import java.util.Iterator;
 
 public class LinkedQueue<E> implements ALDAQueue<E> {
 
+	private final int totalCapacity;
 	LinkedList<E> aList = new LinkedList<>();
-	private int totalCapacity;
 
 	public LinkedQueue(int totalCapacity) {
 		this.totalCapacity = totalCapacity;
@@ -23,10 +23,12 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public void addAll(Collection<? extends E> c) {
-		if (c.size() + aList.size() < totalCapacity) {
+		if (c.size() + aList.size() > totalCapacity) {
+			throw new IndexOutOfBoundsException();
 			// make sure we're not adding more elements than fit
+			// which is the right Exception to throw?
 		}
-		//TODO
+		c.forEach(this::add); //lambda expr. to add
 
 	}
 
