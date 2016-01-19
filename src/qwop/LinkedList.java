@@ -1,5 +1,7 @@
 package qwop;
 
+import java.util.NoSuchElementException;
+
 /*
 **
 * A simple attempt at a linked list structure.
@@ -8,8 +10,8 @@ package qwop;
  */
 public class LinkedList<E> {
 
-	private Node<E> first;
-	private Node<E> last;
+	private Node<E> first = null;
+	private Node<E> last = null;
 	private int size = 0;
 
 	/**
@@ -44,6 +46,9 @@ public class LinkedList<E> {
 	 * @return if the list is empty, this is null, else the first element.
 	 */
 	public Node<E> remove() {
+		if (first == null) {
+			throw new NoSuchElementException();
+		}
 		Node<E> luckyNode = first; //keep a reference to the first
 		first = first.next; //replace our ref. to the first element with the second
 		size--;
@@ -65,6 +70,14 @@ public class LinkedList<E> {
 		first = null;
 		last = null;
 		size = 0;
+	}
+
+	public Node<E> getFirst() {
+		return first;
+	}
+
+	public Node<E> getLast() {
+		return last;
 	}
 
 	public void insertAfter(Node<E> node, Node<E> newNode) {
