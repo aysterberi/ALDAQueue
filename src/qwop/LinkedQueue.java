@@ -4,6 +4,7 @@ import alda.linear.ALDAQueue;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class LinkedQueue<E> implements ALDAQueue<E> {
 
@@ -91,6 +92,47 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	@Override
 	public Iterator<E> iterator() {
 		//TODO
-		return null;
+		return new Iterator<E>() {
+			Node<E> currNode = null;
+
+			/**
+			 * Returns {@code true} if the iteration has more elements.
+			 * (In other words, returns {@code true} if {@link #next} would
+			 * return an element rather than throwing an exception.)
+			 *
+			 * @return {@code true} if the iteration has more elements
+			 */
+			@Override
+			public boolean hasNext() {
+				return !isEmpty() && currNode != aList.getLast();
+				// returns T when list is not empty and current node is not last
+			}
+
+			/**
+			 * Returns the next element in the iteration.
+			 *
+			 * @return the next element in the iteration
+			 * @throws NoSuchElementException if the iteration has no more elements
+			 */
+			@Override
+			public E next() {
+				if (currNode == null) {
+					//set our node to the first in our list
+					currNode = aList.getFirst();
+					return currNode.data;
+				}
+				if (currNode.next == null) {
+					//we ran out of nodes
+					throw new NoSuchElementException();
+				}
+				//set our current node to the next one and return that data
+				currNode = currNode.next;
+				return currNode.data;
+			}
+
+
+		};
 	}
+
+
 }
