@@ -84,6 +84,29 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 		return 0;
 	}
 
+	@Override
+	public String toString() {
+		Iterator<E> itr = iterator();
+		String s = new String("[");
+		if (!itr.hasNext()) {
+			return "[]";
+		}
+		if (size() == 1) {
+			return s + itr.next() + "]";
+		}
+
+		while (itr.hasNext()) {
+			s += itr.next();
+			if (!itr.hasNext()) {
+				return s += "]";
+			}
+			s += ", ";
+
+		}
+		return s;
+
+	}
+
 	/**
 	 * Returns an iterator over elements of type {@code T}.
 	 *
@@ -91,7 +114,7 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	 */
 	@Override
 	public Iterator<E> iterator() {
-		//TODO
+		//This code should totally be in LinkedList.java but we're bound by the spec.
 		return new Iterator<E>() {
 			Node<E> currNode = null;
 
