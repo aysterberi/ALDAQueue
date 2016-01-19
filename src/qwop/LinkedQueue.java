@@ -7,8 +7,12 @@ import java.util.Iterator;
 
 public class LinkedQueue<E> implements ALDAQueue<E> {
 
+	LinkedList<E> aList = new LinkedList<>();
+
 	public void add(E element) {
 		//TODO
+		Node<E> tmp = new Node<>(element);
+		aList.add(tmp);
 	}
 
 	public void addAll(Collection<? extends E> c)
