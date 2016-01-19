@@ -49,6 +49,10 @@ public class LinkedList<E> {
 		return luckyNode;
 	}
 
+	public int size() {
+		return size;
+	}
+
 	public void removeAfter(Node<E> node) {
 		if (node.next != null) {
 			node.next = node.next.next;
