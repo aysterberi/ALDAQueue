@@ -1,6 +1,6 @@
 /*
   Copyright (C) Billy G. J. Beltran & Joakim Berglund
-  Contact details: billy@caudimordax.org, joakim
+  Contact details: billy@caudimordax.org, joakimberglund@live.se
  */
 package qwop;
 
