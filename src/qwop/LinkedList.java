@@ -3,6 +3,7 @@
  */
 package qwop;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /*
@@ -11,9 +12,32 @@ import java.util.NoSuchElementException;
 *
 *
  */
-public class LinkedList<E> {
+public class LinkedList<E> implements Iterable<Node<E>>{
+
+	public void setFirst(Node<E> first) {
+		this.first = first;
+	}
+
+	public void setLast(Node<E> last) {
+		this.last = last;
+	}
+	public void merge(LinkedList<E> list)
+	{
+		Node<E> n = list.getFirst();
+		while(n != null)
+		{
+			add(n);
+			n = n.next;
+		}
+
+	}
 
 	private Node<E> first = null;
+
+	public int getSize() {
+		return size;
+	}
+
 	private Node<E> last = null;
 	private int size = 0;
 
@@ -23,6 +47,7 @@ public class LinkedList<E> {
 	 *
 	 * @param node
 	 */
+
 	public void add(Node<E> node) {
 		if (first == null) {
 			first = node;
@@ -87,6 +112,11 @@ public class LinkedList<E> {
 		newNode.next = node.next; // point new node header to old node's
 		node.next = newNode; // point old node to our newly inserted node
 		size++;
+	}
+
+	@Override
+	public Iterator<Node<E>> iterator() {
+		return null;
 	}
 
 }

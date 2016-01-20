@@ -86,10 +86,50 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 	}
 
 	public int discriminate(E element) {
-		// TODO
-		// move all E equal to e to the end of the queue, throw NPE if e ==
-		// null, return n(E_moved)
-		return 0;
+		if (element == null)
+		{
+			throw new NullPointerException();
+		}
+		if(isEmpty())
+		{
+			return 0;
+		}
+		Iterator<E> i = iterator();
+		LinkedList<E> lucky = new LinkedList<>();
+		LinkedList<E> unlucky = new LinkedList<>();
+		//populate our lists
+		while(i.hasNext())
+		{
+			E tmp = i.next();
+			if (!(tmp == null))
+			{
+
+				if (tmp.equals(element))
+				{
+					unlucky.add(new Node<>(tmp));
+				}
+				else if (!tmp.equals(element))
+				{
+					lucky.add(new Node<>(tmp));
+				}
+			}
+		}
+		//some special cases
+			//all elements matched
+			if (unlucky.size() == size())
+			{
+				aList = unlucky;
+				return size();
+			}
+			//no element matched
+			if (unlucky.size() == 0)
+			{
+				return 0;
+			}
+		//else
+		lucky.merge(unlucky);
+		aList = lucky;
+		return unlucky.size();
 	}
 
 	@Override
@@ -147,6 +187,10 @@ public class LinkedQueue<E> implements ALDAQueue<E> {
 			 */
 			@Override
 			public E next() {
+				if(isEmpty())
+				{
+					throw new NoSuchElementException();
+				}
 				if (currNode == null) {
 					//set our node to the first in our list
 					currNode = aList.getFirst();
