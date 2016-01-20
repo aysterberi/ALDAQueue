@@ -2,7 +2,6 @@ package qwop;
 
 /**
  * A simple node capable of pointing to data and another node
- * Created by Joakim on 2016-01-18.
  */
 class Node<T> {
 
