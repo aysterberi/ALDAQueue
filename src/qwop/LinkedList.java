@@ -12,111 +12,110 @@ import java.util.NoSuchElementException;
 *
 *
  */
-public class LinkedList<E> implements Iterable<Node<E>>{
+public class LinkedList<E> implements Iterable<Node<E>> {
 
-	public void setFirst(Node<E> first) {
-		this.first = first;
-	}
+    public void setFirst(Node<E> first) {
+        this.first = first;
+    }
 
-	public void setLast(Node<E> last) {
-		this.last = last;
-	}
-	public void merge(LinkedList<E> list)
-	{
-		Node<E> n = list.getFirst();
-		while(n != null)
-		{
-			add(n);
-			n = n.next;
-		}
+    public void setLast(Node<E> last) {
+        this.last = last;
+    }
 
-	}
+    public void merge(LinkedList<E> list) {
+        Node<E> n = list.getFirst();
+        while (n != null) {
+            add(n);
+            n = n.next;
+        }
 
-	private Node<E> first = null;
+    }
 
-	public int getSize() {
-		return size;
-	}
+    private Node<E> first = null;
 
-	private Node<E> last = null;
-	private int size = 0;
+    public int getSize() {
+        return size;
+    }
 
-	/**
-	 * Adds a node to the list irrespective if the list is empty or not.
-	 * If the list is empty, the node reference is stored as first
-	 *
-	 * @param node
-	 */
+    private Node<E> last = null;
+    private int size = 0;
 
-	public void add(Node<E> node) {
-		if (first == null) {
-			first = node;
-			last = node;
-		} else {
-			last.next = node;
-			last = node;
-		}
-		size++;
-	}
+    /**
+     * Adds a node to the list irrespective if the list is empty or not.
+     * If the list is empty, the node reference is stored as first
+     *
+     * @param node
+     */
 
-	/**
-	 * Returns the first element in the list without removing it.
-	 *
-	 * @return if the list empty, this is null, else the first element.
-	 */
-	public Node<E> peek() {
-		return first;
-	}
+    public void add(Node<E> node) {
+        if (first == null) {
+            first = node;
+            last = node;
+        } else {
+            last.next = node;
+            last = node;
+        }
+        size++;
+    }
 
-	/**
-	 * Returns the first element in the list and removes it.
-	 *
-	 * @return if the list is empty, this is null, else the first element.
-	 */
-	public Node<E> remove() {
-		if (first == null) {
-			throw new NoSuchElementException();
-		}
-		Node<E> luckyNode = first; //keep a reference to the first
-		first = first.next; //replace our ref. to the first element with the second
-		size--;
-		return luckyNode;
-	}
+    /**
+     * Returns the first element in the list without removing it.
+     *
+     * @return if the list empty, this is null, else the first element.
+     */
+    public Node<E> peek() {
+        return first;
+    }
 
-	public int size() {
-		return size;
-	}
+    /**
+     * Returns the first element in the list and removes it.
+     *
+     * @return if the list is empty, this is null, else the first element.
+     */
+    public Node<E> remove() {
+        if (first == null) {
+            throw new NoSuchElementException();
+        }
+        Node<E> luckyNode = first; //keep a reference to the first
+        first = first.next; //replace our ref. to the first element with the second
+        size--;
+        return luckyNode;
+    }
 
-	public void removeAfter(Node<E> node) {
-		if (node.next != null) {
-			node.next = node.next.next;
-		}
-		size--;
-	}
+    public int size() {
+        return size;
+    }
 
-	public void clear() {
-		first = null;
-		last = null;
-		size = 0;
-	}
+    public void removeAfter(Node<E> node) {
+        if (node.next != null) {
+            node.next = node.next.next;
+        }
+        size--;
+    }
 
-	public Node<E> getFirst() {
-		return first;
-	}
+    public void clear() {
+        first = null;
+        last = null;
+        size = 0;
+    }
 
-	public Node<E> getLast() {
-		return last;
-	}
+    public Node<E> getFirst() {
+        return first;
+    }
 
-	public void insertAfter(Node<E> node, Node<E> newNode) {
-		newNode.next = node.next; // point new node header to old node's
-		node.next = newNode; // point old node to our newly inserted node
-		size++;
-	}
+    public Node<E> getLast() {
+        return last;
+    }
 
-	@Override
-	public Iterator<Node<E>> iterator() {
-		return null;
-	}
+    public void insertAfter(Node<E> node, Node<E> newNode) {
+        newNode.next = node.next; // point new node header to old node's
+        node.next = newNode; // point old node to our newly inserted node
+        size++;
+    }
+
+    @Override
+    public Iterator<Node<E>> iterator() {
+        return null;
+    }
 
 }
